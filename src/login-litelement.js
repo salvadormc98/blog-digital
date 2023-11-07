@@ -8,7 +8,7 @@ export class LoginLitelement extends LitElement {
                 border: solid 3px #FFC300;
                 border-radius: 10px;
                 width: 350px;
-                height: 400px;
+                height: 470px;
                 text-align: center;
             }
 
@@ -20,7 +20,7 @@ export class LoginLitelement extends LitElement {
                 border-radius: 5px;
             }
 
-            button {
+            .btn_enviar {
                 width: 60%;
                 height: 40px;
                 background: #FFD95E;
@@ -34,17 +34,36 @@ export class LoginLitelement extends LitElement {
                 background: #FFC300;
                 cursor: pointer;
             }
+            .fbtn{
+
+            }
+            .ggbtn{
+
+            }
+            .img{
+                width: 35px; height: auto; padding:2px;
+            }
+
         `;
     }
 
     render() {
         return html`
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0" nonce="Ajlb0MZP"></script>
             <div class="container">
                 <h2>Ingrese sus datos</h2>
                 <input id="email" type="email" placeholder="Usuario o Correo">
                 <input id="password" type="password" placeholder="Contraseña">
-
-                <button @click="${this._login}">Ingresar</button>
+                <button class='btn_enviar' @click="${this._login}">Ingresar</button>
+                <h4>Iniciar sesión con:</h4>
+                    <button class="fbtn" onclick="location.href='https://accounts.google.com/v3/signin/identifier?authuser=0&continue=http%3A%2F%2Fsupport.google.com%2Fmail%2Fanswer%2F8494%3Fhl%3Den%26co%3DGENIE.Platform%253DDesktop&ec=GAlAdQ&hl=en&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S2080508850%3A1699383725172640&theme=glif'">
+                        <img class="img" src='images/gg.png'>
+                    </button>
+                    <button class="ggbtn" onclick="location.href='https://es-la.facebook.com/login/device-based/regular/login/'">
+                        <img class="img" src='images/ff2.png'>
+                </button>                    
+                
             </div>
         `;
     }
